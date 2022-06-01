@@ -1,4 +1,7 @@
 import React from "react";
+import "../Example/Demo.scss";
+import { toast } from "react-toastify";
+
 class ChildComponent extends React.Component {
   state = {
     showJob: false,
@@ -6,7 +9,9 @@ class ChildComponent extends React.Component {
   handleOnclickDelete = (job) => {
     console.log("Check log", job);
     this.props.deleteJob(job);
+    toast.info("Xoa Thành Công!");
   };
+
   handleShowHide = () => {
     this.setState({
       showJob: !this.state.showJob,
@@ -14,7 +19,7 @@ class ChildComponent extends React.Component {
   };
 
   render() {
-    //console.log("check props", this.props);
+    //console.log("check props", this.props);s
     // let { name, age, address, arrJob } = this.props;
     let { arrJob } = this.props;
     let { showJob } = this.state;
@@ -37,7 +42,10 @@ class ChildComponent extends React.Component {
                   <div key={item.id}>
                     {item.title}-{item.salary}
                     <></>
-                    <button onClick={() => this.handleOnclickDelete(item)}>
+                    <button
+                      className="btn-del"
+                      onClick={() => this.handleOnclickDelete(item)}
+                    >
                       X
                     </button>
                   </div>

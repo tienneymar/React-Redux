@@ -1,4 +1,6 @@
 import React from "react";
+import "../Example/Demo.scss";
+import { toast } from "react-toastify";
 
 class AddComponents extends React.Component {
   state = {
@@ -22,6 +24,7 @@ class AddComponents extends React.Component {
       alert("Waring");
       return;
     }
+    toast.success("Thêm Thành Công!");
     console.log("Check data", this.state);
     this.props.addNewJob({
       id: Math.floor(Math.random() * 10),
@@ -54,6 +57,7 @@ class AddComponents extends React.Component {
 
           <br />
           <input
+            className="in-style"
             type="button"
             value="Submit"
             onClick={(event) => this.handleClick(event)}
